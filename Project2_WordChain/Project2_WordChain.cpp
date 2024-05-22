@@ -94,4 +94,6 @@ int main()
 
 	cout << endl << "게임 종료!" << endl
 		<< "총 입력한 단어 개수 : " << wordChain.size() << endl;
+
+	return 0;
 }
