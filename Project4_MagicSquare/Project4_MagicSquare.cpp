@@ -75,11 +75,12 @@ int main()
 		}
 	}
 
+	//마방진 벡터 출력
 	for (int i = 0; i < MagicSquare.size(); i++)
 	{
 		for (int j = 0; j < MagicSquare_rows.size(); j++)
 		{
-			cout << MagicSquare[i][j] << " ";
+			cout << MagicSquare[i][j] << "\t";
 		}
 		cout << endl;
 	}
