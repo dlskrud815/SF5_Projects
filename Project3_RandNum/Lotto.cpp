@@ -24,11 +24,7 @@ vector <int> GetLottoNum(int num1, int num2)
 		{
 			for (int lotto : v_lotto)
 			{
-				if (randomNum == lotto)
-				{
-					randomNum = dis(gen);
-				}
-				else
+				if (randomNum != lotto)
 				{
 					v_lotto.push_back(randomNum);
 					break;
