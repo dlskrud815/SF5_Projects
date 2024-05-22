@@ -18,5 +18,13 @@
     <ClCompile Include="Project3_RandNum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Lotto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lotto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

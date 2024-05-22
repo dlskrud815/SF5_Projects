@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Lotto.cpp" />
     <ClCompile Include="Project3_RandNum.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lotto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
