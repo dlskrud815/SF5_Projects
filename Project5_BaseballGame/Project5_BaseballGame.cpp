@@ -19,13 +19,7 @@ int main()
 	cout << "* 야구 게임 " << endl << endl;
 
 	//1~9까지 3개 난수 생성
-	//v_random = GetRandomNum(9, 3);
-	v_random = { 6, 9, 8 };
-	for (int n : v_random)
-	{
-		cout << n << " ";
-	}
-	cout << endl;
+	v_random = GetRandomNum(9, 3);
 
 	count = 0;
 	while (1)
