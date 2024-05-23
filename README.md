@@ -17,11 +17,11 @@
 
 ![image4](https://github.com/dlskrud815/SF5_Projects/assets/86285863/057644ce-b6dc-4486-9210-62d631b9c6eb)
 
-### 5. [야구 게임](https://github.com/dlskrud815/SF5_Projects/tree/main/Project5_BaseballGame)
+### [5. 야구 게임](https://github.com/dlskrud815/SF5_Projects/tree/main/Project5_BaseballGame)
 
 ![image5](https://github.com/dlskrud815/SF5_Projects/assets/86285863/c5020690-13fc-4306-a239-3e09799322b6)
 
-### 6. [계산기 만들기(클래스 사용)](https://github.com/dlskrud815/SF5_Projects/tree/main/Project6_Calculator)
+### [6. 계산기 만들기(클래스 사용)](https://github.com/dlskrud815/SF5_Projects/tree/main/Project6_Calculator)
 
 ![image6](https://github.com/dlskrud815/SF5_Projects/assets/86285863/a0ac52ea-d465-490b-b824-b29ec6b8c0eb)
 
