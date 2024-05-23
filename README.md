@@ -2,7 +2,7 @@
 
 ### 1. 배스킨라빈스 31 게임
 
-![image1](https://github.com/dlskrud815/SF5_Projects/assets/86285863/475f8081-950a-408a-81ef-fb418064d287)
+![image1](https://github.com/dlskrud815/SF5_Projects/assets/86285863/171f305b-1a1f-4326-bd44-7ecd1013b5a2)
 
 ### 2. 타임어택(30초) 끝말잇기 게임
 
