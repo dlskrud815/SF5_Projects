@@ -55,15 +55,17 @@ int main()
 
 		for (int i = 0; i < v_random.size(); i++)
 		{
-			for (int j = 0; j < v_input.size(); j++)
+			if (v_random[i] == v_input[i])
 			{
-				if (v_random[i] == v_input[j])
+				// 같은 위치에 같은 값 = 스트라이크
+				strike++;
+			}
+			else
+			{
+				// 다른 위치에 같은 값 = 볼
+				for (int j = 0; j < v_input.size(); j++)
 				{
-					if (v_random[i] == v_input[i])
-					{
-						strike++;
-					}
-					else
+					if (v_random[i] == v_input[j])
 					{
 						ball++;
 					}

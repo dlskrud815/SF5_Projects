@@ -1,20 +1,28 @@
-﻿// Project7_Game.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿//작성자: 이나경
+// 2024.05.23.
 //
+// - 프로젝트 7. 게임 만들기 -
+// 1. 캐릭터, 무기, 칼, 총 클래스를 만들어준다.
+// 2. 캐릭터 클래스
+//    - 필드: ‘hp’, ‘level’, ‘무기들’
+//    - 메소드 : 무기 줍기, 공격하기(공격하기 메소드에서는 가지고 있는 무기들만 사용해서 
+//      공격할 수 있으며, 공격당한 캐릭터의 hp가 해당하는 무기의 공격력만큼 감소한다.)
+// 3. 무기 클래스
+//    - 필드 : 공격력, 공격 가능 횟수
+//    - 메소드 : 공격하기
+// 4. 총 & 칼 클래스(무기 클래스를 상속 받는 클래스)
+//    - 칼 : 공격력 - 5, 공격가능횟수 - 3, 공격하기 - "찌르기" 출력
+//    - 총 : 공격력 - 10, 공격가능횟수 - 1, 공격하기 - "총쏘기" 출력
+// 5. 파일 분리하기
 
 #include <iostream>
+#include "Character.h"
+#include "Weapon.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	Character ch1(100, 1);
+	Character ch2(100, 1);
+
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
