@@ -8,7 +8,7 @@
 
 ![image2](https://github.com/dlskrud815/SF5_Projects/assets/86285863/f5bdb01d-6112-4de5-95ad-7ec65cabd118)
 
-### 3. 랜덤 숫자 맞히기
+### 3. 랜덤 숫자(로또 번호) 맞히기
 
 ![image3](https://github.com/dlskrud815/SF5_Projects/assets/86285863/3709768f-c1c3-40a5-a139-8c88e47dc6c0)
 
