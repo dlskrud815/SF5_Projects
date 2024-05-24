@@ -156,8 +156,16 @@ void Player::attack(Character* ch1, Character* ch2)
 	ch2->setHp(ch2->getHp() - this->getWeaponsList()[choice - 1]->getAtk());
 	
 	Sleep(500);
-	cout << endl << ch2->getName() << " 잔여 HP: " << ch2->getHp() << endl;
 
+	if (ch2->getHp() <= 0)
+	{
+		cout << endl << ch2->getName() << " 잔여 HP: 0" << endl;
+	}
+	else
+	{
+		cout << endl << ch2->getName() << " 잔여 HP: " << ch2->getHp() << endl;
+	}
+	
 	// 무기 사용 횟수 소모
 	if (this->getWeaponsList()[choice - 1]->getAtk() != 0)
 	{
@@ -171,6 +179,15 @@ void Monster::attack(Character* ch1, Character* ch2) //플레이어명으로 처
 	ch1->setHp(ch1->getHp() - m->getAtk());
 
 	Sleep(500);
-	cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
-		<< "플레이어 잔여 HP: " << ch1->getHp() << endl;
+
+	if (ch1->getHp() <= 0)
+	{
+		cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
+			<< "플레이어 잔여 HP: 0" << endl;
+	}
+	else
+	{
+		cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
+			<< "플레이어 잔여 HP: " << ch1->getHp() << endl;
+	}
 }

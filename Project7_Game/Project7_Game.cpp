@@ -98,11 +98,11 @@ int main()
 		ifstream intro("GameIntro.txt");
 
 		cout << endl << "----------------------------------------------------------" << endl << endl;
-		Sleep(1500);
+		//Sleep(1500);
 		while (getline(intro, line2))
 		{
 			cout << line2 << endl << endl;
-			Sleep(1500);
+			//Sleep(1500);
 		}
 		cout << "----------------------------------------------------------" << endl << endl;
 		intro.close();
@@ -149,7 +149,9 @@ int main()
 				}
 				else if (!i)
 				{
+					cout << "----------------------------------------------------------" << endl << endl;
 					cout << monsters[monster_num]->getName() << "무리가 길을 막고 있다." << endl << endl;
+					cout << "----------------------------------------------------------" << endl << endl;
 				}
 
 				Character::PlayerlHp = player->getHp();
@@ -196,7 +198,7 @@ int main()
 
 				if (life) // 승리
 				{
-					if (monster_num != monsters.size()) // 마왕이 아닐 때
+					if (monster_num != monsters.size()-1) // 마왕이 아닐 때
 					{
 						if (!i)
 						{
@@ -213,7 +215,7 @@ int main()
 					}
 					else // 마왕일 때
 					{
-						cout << "마왕 이김 축하";
+						cout << "마왕 이김 축하 -3";
 						return 0;
 					}
 				}
