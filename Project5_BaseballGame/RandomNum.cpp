@@ -15,20 +15,10 @@ vector <int> GetRandomNum(int num1, int num2)
 	{
 		randomNum = dis(gen);
 
-		if (!v_random.size())
+		// 중복 확인 후 추가
+		if (find(v_random.begin(), v_random.end(), randomNum) == v_random.end())
 		{
 			v_random.push_back(randomNum);
-		}
-		else
-		{
-			for (int random : v_random)
-			{
-				if (randomNum != random)
-				{
-					v_random.push_back(randomNum);
-					break;
-				}
-			}
 		}
 	}
 

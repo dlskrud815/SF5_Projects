@@ -20,6 +20,14 @@ int main()
 	// 1~25 랜덤 6개
 	v_lotto = GetLottoNum(num1, num2);
 
+	/*
+	for (int lotto : v_lotto)
+	{
+		cout << lotto << " ";
+	}
+
+	*/
+
 	cout << "숫자는 1 ~ 25까지의 숫자만 입력할 수 있습니다." << endl << endl;
 
 	while (i < 6)

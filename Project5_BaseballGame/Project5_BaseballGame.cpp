@@ -21,6 +21,12 @@ int main()
 	//1~9까지 3개 난수 생성
 	v_random = GetRandomNum(9, 3);
 
+	for (int v : v_random)
+	{
+		cout << v << " ";
+	}
+
+	cout << endl;
 	count = 0;
 	while (1)
 	{

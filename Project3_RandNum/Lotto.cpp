@@ -16,20 +16,9 @@ vector <int> GetLottoNum(int num1, int num2)
 	{
 		randomNum = dis(gen);
 
-		if (!v_lotto.size())
+		if (find(v_lotto.begin(), v_lotto.end(), randomNum) == v_lotto.end())
 		{
 			v_lotto.push_back(randomNum);
-		}
-		else
-		{
-			for (int lotto : v_lotto)
-			{
-				if (randomNum != lotto)
-				{
-					v_lotto.push_back(randomNum);
-					break;
-				}
-			}
 		}
 	}
 
