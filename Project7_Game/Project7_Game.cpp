@@ -76,7 +76,7 @@ int main()
 
 		for (vector <string> d : data)
 		{
-			Character* monster = new Character();
+			Character* monster = new Monster();
 			monster->setName(d[0]);
 			monster->setStatus(stoi(d[1]));
 
@@ -88,11 +88,11 @@ int main()
 		ifstream intro("GameIntro.txt");
 
 		cout << endl << "----------------------------------------------------------" << endl << endl;
-		//Sleep(1500);
+		Sleep(1500);
 		while (getline(intro, line2))
 		{
 			cout << line2 << endl << endl;
-			//Sleep(1500);
+			Sleep(1500);
 		}
 		cout << "----------------------------------------------------------" << endl << endl;
 		intro.close();
@@ -131,18 +131,23 @@ int main()
 			while (1) // 동단계 몬스터와 싸울 횟수
 			{
 				Loading(3);
-				if (!i && monster_num == monsters.size())
+				if (!i)
 				{
-					//마왕
-					cout << "마왕 만남";
+					if (monsters[monster_num]->getName() == "마왕")
+					{
+						cout << "----------------------------------------------------------" << endl << endl;
+						cout << monsters[monster_num]->getName() << "이다!!!" << endl << endl;
+						cout << "----------------------------------------------------------" << endl << endl;
+					}
+					else
+					{
+						cout << "----------------------------------------------------------" << endl << endl;
+						cout << monsters[monster_num]->getName() << "무리가 길을 막고 있다." << endl << endl;
+						cout << "----------------------------------------------------------" << endl << endl;
+					}
+				}
 
-				}
-				else if (!i)
-				{
-					cout << "----------------------------------------------------------" << endl << endl;
-					cout << monsters[monster_num]->getName() << "무리가 길을 막고 있다." << endl << endl;
-					cout << "----------------------------------------------------------" << endl << endl;
-				}
+				Sleep(500);
 
 				Character::PlayerlHp = player->getHp();
 				Character::MonsterHp = monsters[monster_num]->getHp();
@@ -151,16 +156,9 @@ int main()
 				{
 					player->attack(player, monsters[monster_num]);
 
-					if (player->getHp() <= 0)
-					{
-						life = false;
-						break;
-					}
-
-					monsters[monster_num]->attack(player, monsters[monster_num]);
-
 					if (monsters[monster_num]->getHp() <= 0)
 					{
+						//보상
 						switch (monster_num)
 						{
 						case 0:
@@ -181,6 +179,14 @@ int main()
 						}
 						break;
 					}
+
+					monsters[monster_num]->attack(player, monsters[monster_num]);
+
+					if (player->getHp() <= 0)
+					{
+						life = false;
+						break;
+					}
 				}
 
 				player->setHp(Character::PlayerlHp);
@@ -188,6 +194,7 @@ int main()
 
 				if (life) // 승리
 				{
+					player->setLevel(player->getLevel() + 1);
 					if (monster_num != monsters.size()-1) // 마왕이 아닐 때
 					{
 						if (!i)
@@ -196,6 +203,7 @@ int main()
 						}
 						cout << "다른 " << monsters[monster_num]->getName() << "와도 싸우시겠습니까? (y or n) ";
 						cin >> choice;
+						cout << endl;
 
 						if (choice != "y")
 						{
@@ -205,18 +213,20 @@ int main()
 					}
 					else // 마왕일 때
 					{
-						cout << "마왕 이김 축하 -3";
+						cout << "> 고맙다, 용사! 이제 마을은 안전하다." << endl
+							<< endl << "[게임 종료]" << endl;
 						return 0;
 					}
 				}
 				else break; //패배
 			}
 			
+			if (!life) break;
 			if (monster_num == monsters.size()) break;
 			monster_num++;
 		}
 
-		Loading(5);
+		Loading(3);
 		cout << "> 용사는 마을을 지키지 못 한 채 사망하였다." << endl << endl;
 		Loading(3);
 		cout << "[게임 종료]" << endl;

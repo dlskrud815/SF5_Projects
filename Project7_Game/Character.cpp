@@ -67,7 +67,7 @@ void Player::getWeapon(string weapon)
 		if (this->weapons.size() <= 0)
 		{
 			this->weapons.push_back(v_w[0]);
-			cout << "! " << v_w[0]->getName()
+			cout << endl << "* " << v_w[0]->getName()
 				<< "을 얻었습니다. " << endl << endl;
 		}
 		else
@@ -113,14 +113,14 @@ void Player::setStatus(int level)
 	this->setLevel(level);
 
 	//체력=기본 체력+(레벨−1)×레벨당 증가 체력
-	int hp = 100 + (level - 1) * 15;
+	int hp = 200 + (level - 1) * 50;
 	this->setHp(hp);
 }
 
 void Monster::setStatus(int level)
 {
-	int hp = 50 + (level - 1) * 30;
-	int atk = 20 + (level - 1) * 10;
+	int hp = 40 + (level - 1) * 20;
+	int atk = 10 + (level - 1) * 10;
 
 	this->setLevel(level);
 	this->setHp(hp);
@@ -131,45 +131,60 @@ void Player::attack(Character* ch1, Character* ch2)
 {
 	//무기 고르기
 	cout << endl << "[현재 소유한 무기]" << endl << endl;
-	int i = 0, choice;
+	int i = 0, choice, cnt = 0;
 
 	for (Weapon* list : this->getWeaponsList())
 	{
-		cout << i + 1 << ". " << list->getName() << endl << "- 공격력: " << list->getAtk()
-			<< " 사용 가능 횟수: " << list->getAtkNum() << endl;
-		i++;
+		if (list->getAtkNum() > 0)
+		{
+			cout << i + 1 << ". " << list->getName() << endl << "- 공격력: " << list->getAtk()
+				<< " 사용 가능 횟수: " << list->getAtkNum() << endl;
+			i++;
+		}
+		else cnt++;
 	}
 
-	cout << endl << "어떤 무기를 선택하시겠습니까? (무기 번호를 입력하세요.) ";
-	cin >> choice;
-
-	while ((choice - 1) > this->getWeaponsList().size() || (choice - 1) < 0)
-	{
-		cout << "* 존재하지 않는 번호입니다." << endl << endl << "[재입력]"
-			<< endl << "어떤 무기를 선택하시겠습니까? (무기 번호를 입력하세요.) ";
-		cin >> choice;
-	}
-
-	this->getWeaponsList()[choice - 1]->attack();
-
-	// 몬스터 체력 소모
-	ch2->setHp(ch2->getHp() - this->getWeaponsList()[choice - 1]->getAtk());
-	
 	Sleep(500);
 
-	if (ch2->getHp() <= 0)
+	if (this->getWeaponsList().size() != cnt)
 	{
-		cout << endl << ch2->getName() << " 잔여 HP: 0" << endl;
+		cout << endl << "어떤 무기를 선택하시겠습니까? (무기 번호를 입력하세요.) ";
+		cin >> choice;
+
+		while ((choice - 1) > this->getWeaponsList().size() || (choice - 1) < 0)
+		{
+			cout << "* 존재하지 않는 번호입니다." << endl << endl << "[재입력]"
+				<< endl << "어떤 무기를 선택하시겠습니까? (무기 번호를 입력하세요.) ";
+			cin >> choice;
+		}
+
+		this->getWeaponsList()[choice - 1]->attack();
+
+		// 몬스터 체력 소모
+		ch2->setHp(ch2->getHp() - this->getWeaponsList()[choice - 1]->getAtk());
+
+		Sleep(500);
+
+		cout << "--------------------------------------------------" << endl;
+		if (ch2->getHp() <= 0)
+		{
+			cout << endl << ch2->getName() << " 잔여 HP: 0" << endl;
+		}
+		else
+		{
+			cout << endl << ch2->getName() << " 잔여 HP: " << ch2->getHp() << endl;
+		}
+		cout << endl << "--------------------------------------------------" << endl << endl;
+
+		// 무기 사용 횟수 소모
+		if (this->getWeaponsList()[choice - 1]->getAtk() != 0)
+		{
+			this->getWeaponsList()[choice - 1]->setAtkNum(this->getWeaponsList()[choice - 1]->getAtkNum() - 1);
+		}
 	}
 	else
 	{
-		cout << endl << ch2->getName() << " 잔여 HP: " << ch2->getHp() << endl;
-	}
-	
-	// 무기 사용 횟수 소모
-	if (this->getWeaponsList()[choice - 1]->getAtk() != 0)
-	{
-		this->getWeaponsList()[choice - 1]->setAtkNum(this->getWeaponsList()[choice - 1]->getAtkNum() - 1);
+		cout << "- 없음 -" << endl;
 	}
 }
 
@@ -180,6 +195,7 @@ void Monster::attack(Character* ch1, Character* ch2) //플레이어명으로 처
 
 	Sleep(500);
 
+	cout << "--------------------------------------------------" << endl;
 	if (ch1->getHp() <= 0)
 	{
 		cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
@@ -190,4 +206,6 @@ void Monster::attack(Character* ch1, Character* ch2) //플레이어명으로 처
 		cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
 			<< "플레이어 잔여 HP: " << ch1->getHp() << endl;
 	}
+
+	cout << endl << "--------------------------------------------------" << endl << endl;
 }
