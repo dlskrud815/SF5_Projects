@@ -84,7 +84,7 @@ void Player::getWeapon(string weapon)
 			if (same)
 			{
 				cout << endl << "* 이미 " << v_w[0]->getName()
-					<< "을 소유하고 있습니다. 사용가능 횟수를 추가합니다." << endl;
+					<< "을 소유하고 있습니다, 사용가능 횟수를 추가합니다." << endl;
 
 				//사용 횟수 추가하기!
 				for (Weapon* ww : this->weapons)
@@ -92,7 +92,7 @@ void Player::getWeapon(string weapon)
 					if (ww->getName() == v_w[0]->getName())
 					{
 						ww->setAtkNum(ww->getAtkNum() + v_w[0]->getAtkNum());
-						cout << v_w[0]->getName() << "의 사용가능 횟수: " << ww->getAtkNum() << endl;
+						cout << "- " << v_w[0]->getName() << "의 사용가능 횟수: " << ww->getAtkNum() << endl;
 						break;
 					}
 				}
@@ -177,9 +177,14 @@ void Player::attack(Character* ch1, Character* ch2)
 		cout << endl << "--------------------------------------------------" << endl << endl;
 
 		// 무기 사용 횟수 소모
-		if (this->getWeaponsList()[choice - 1]->getAtk() != 0)
+		if (this->getWeaponsList()[choice - 1]->getAtkNum() != 0)
 		{
 			this->getWeaponsList()[choice - 1]->setAtkNum(this->getWeaponsList()[choice - 1]->getAtkNum() - 1);
+		}
+
+		if (this->getWeaponsList()[choice - 1]->getAtkNum() <= 0)
+		{
+			this->weapons.erase(this->weapons.begin() + (choice - 1));
 		}
 	}
 	else
@@ -188,23 +193,23 @@ void Player::attack(Character* ch1, Character* ch2)
 	}
 }
 
-void Monster::attack(Character* ch1, Character* ch2) //플레이어명으로 처리
+void Monster::attack(Character* ch1, Character* ch2)
 {
 	Monster* m = (Monster*)ch2;
 	ch1->setHp(ch1->getHp() - m->getAtk());
 
 	Sleep(500);
 
+	cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl;
+
 	cout << "--------------------------------------------------" << endl;
 	if (ch1->getHp() <= 0)
 	{
-		cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
-			<< "플레이어 잔여 HP: 0" << endl;
+		cout << endl << "플레이어 잔여 HP: 0" << endl;
 	}
 	else
 	{
-		cout << endl << ch2->getName() << "의 공격을 받았습니다. " << endl << endl
-			<< "플레이어 잔여 HP: " << ch1->getHp() << endl;
+		cout << endl << "플레이어 잔여 HP: " << ch1->getHp() << endl;
 	}
 
 	cout << endl << "--------------------------------------------------" << endl << endl;

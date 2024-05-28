@@ -195,6 +195,9 @@ int main()
 				if (life) // 승리
 				{
 					player->setLevel(player->getLevel() + 1);
+					player->setStatus(player->getLevel());
+					cout << endl << "* 플레이어 레벨 업! - 현재 레벨 : " << player->getLevel() << endl;
+
 					if (monster_num != monsters.size()-1) // 마왕이 아닐 때
 					{
 						if (!i)
