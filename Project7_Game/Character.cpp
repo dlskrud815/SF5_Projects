@@ -151,7 +151,7 @@ void Player::attack(Character* ch1, Character* ch2)
 		cout << endl << "어떤 무기를 선택하시겠습니까? (무기 번호를 입력하세요.) ";
 		cin >> choice;
 
-		while ((choice - 1) > this->getWeaponsList().size() || (choice - 1) < 0)
+		while ((choice - 1) >= this->weapons.size() || (choice - 1) < 0)
 		{
 			cout << "* 존재하지 않는 번호입니다." << endl << endl << "[재입력]"
 				<< endl << "어떤 무기를 선택하시겠습니까? (무기 번호를 입력하세요.) ";
