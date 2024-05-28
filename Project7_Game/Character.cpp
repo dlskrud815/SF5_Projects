@@ -113,7 +113,7 @@ void Player::setStatus(int level)
 	this->setLevel(level);
 
 	//체력=기본 체력+(레벨−1)×레벨당 증가 체력
-	int hp = 200 + (level - 1) * 50;
+	int hp = 100 + (level - 1) * 30;
 	this->setHp(hp);
 }
 
