@@ -28,4 +28,4 @@
 ### [7. 게임 만들기(클래스 사용)](https://github.com/dlskrud815/SF5_Projects/tree/main/Project7_Game)
 
 ![image7-1](https://github.com/dlskrud815/SF5_Projects/assets/86285863/68a2060a-cb3e-45d3-92c3-3bcd462ce09e)
-![image7-2](https://github.com/dlskrud815/SF5_Projects/assets/86285863/95e521ab-fabe-44a4-9165-d690b6cd5a66)
+![image7-2](https://github.com/dlskrud815/SF5_Projects/assets/86285863/7b7a8cd3-b52b-4f30-8dc4-c4f28ad43a08)
