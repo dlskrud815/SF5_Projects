@@ -1,5 +1,6 @@
 #include "Lotto.h"
 #include <iostream>
+#include <cmath>
 
 vector <int> GetLottoNum(int num1, int num2)
 {
@@ -40,7 +41,8 @@ int WinningLotto(vector<int> v_input, vector<int> v_lotto)
 			}
 		}
 	}
-
+	
+	/*
 	switch (check)
 	{
 	case 0:
@@ -65,6 +67,9 @@ int WinningLotto(vector<int> v_input, vector<int> v_lotto)
 		rank = 1;
 		break;
 	}
+	*/
+
+	rank = abs(check - 7);
 
 	return rank;
 }
